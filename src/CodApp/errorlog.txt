@@ -1,0 +1,311 @@
+Windows PowerShell
+Copyright (C) 2015 Microsoft Corporation. All rights reserved.
+
+PS C:\Users\epicodus> cd desktop
+PS C:\Users\epicodus\desktop> git clone https://github.com/denalisk/CodApp
+Cloning into 'CodApp'...
+remote: Counting objects: 402, done.
+remote: Compressing objects: 100% (142/142), done.
+Receiving objects:  89% (358/402)   d 372 (delta 175), pack-reused 0 eceiving objects:  85% (342/402)
+Receiving objects: 100% (402/402), 411.59 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (205/205), done.
+PS C:\Users\epicodus\desktop> cd codapp
+PS C:\Users\epicodus\desktop\codapp> git config user.name "Sam Kirsch"
+PS C:\Users\epicodus\desktop\codapp> git config user.email samdkirsch@gmail.com
+PS C:\Users\epicodus\desktop\codapp> dotnet restore
+
+Welcome to .NET Core!
+---------------------
+Learn more about .NET Core @ https://aka.ms/dotnet-docs. Use dotnet --help to see available commands or go to https://ak
+a.ms/dotnet-cli-docs.
+Telemetry
+--------------
+The .NET Core tools collect usage data in order to improve your experience. The data is anonymous and does not include c
+ommandline arguments. The data is collected by Microsoft and shared with the community.
+You can opt out of telemetry by setting a DOTNET_CLI_TELEMETRY_OPTOUT environment variable to 1 using your favorite shel
+l.
+You can read more about .NET Core tools telemetry @ https://aka.ms/dotnet-cli-telemetry.
+Configuring...
+-------------------
+A command is running to initially populate your local package cache, to improve restore speed and enable offline access.
+ This command will take up to a minute to complete and will only happen once.
+Decompressing 100% 5646 ms
+Expanding 100% 31061 ms
+log  : Restoring packages for C:\Users\epicodus\desktop\codapp\src\CodApp\project.json...
+log  : Restoring packages for tool 'Microsoft.AspNetCore.Server.IISIntegration.Tools' in C:\Users\epicodus\desktop\codap
+p\src\CodApp\project.json...
+log  : Restoring packages for tool 'Microsoft.EntityFrameworkCore.Tools' in C:\Users\epicodus\desktop\codapp\src\CodApp\
+project.json...
+log  : Lock file has not changed. Skipping lock file write. Path: C:\Users\epicodus\desktop\codapp\src\CodApp\project.lo
+ck.json
+log  : C:\Users\epicodus\desktop\codapp\src\CodApp\project.json
+log  : Restore completed in 6555ms.
+PS C:\Users\epicodus\desktop\codapp> cd .\src\CodApp\
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> dotnet ef database update ArticleRework
+Project CodApp (.NETCoreApp,Version=v1.0) will be compiled because Input items removed from last build
+Compiling CodApp for .NETCoreApp,Version=v1.0
+Compilation succeeded.
+    0 Warning(s)
+    0 Error(s)
+Time elapsed 00:00:01.6536455
+
+Done.
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> SSMS script.sql
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> atom .
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git add .
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git commit -m "finish main funcionality and linking and move on to final
+ styling"
+[master 200950d] finish main funcionality and linking and move on to final styling
+ 12 files changed, 100 insertions(+), 63 deletions(-)
+ create mode 100644 src/CodApp/Views/Newsletter/Readers.cshtml
+ rewrite src/CodApp/obj/Debug/netcoreapp1.0/.IncrementalCache (98%)
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> SSMS script.sql
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git add .
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git commit -m "add styling to other pages and remove extraeneous element
+s"
+[master 565d488] add styling to other pages and remove extraeneous elements
+ 8 files changed, 281 insertions(+), 126 deletions(-)
+ rewrite src/CodApp/Views/Administrator/Login.cshtml (71%)
+ rewrite src/CodApp/Views/Administrator/Register.cshtml (81%)
+ rewrite src/CodApp/Views/Shared/AddReader.cshtml (94%)
+ rename src/CodApp/{script.sql => script.txt} (92%)
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git log
+commit 565d4882e0e1ac4ca5bdb8669eea278770c3a5f7
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 21:01:52 2017 -0700
+
+    add styling to other pages and remove extraeneous elements
+
+commit 200950decfe8a809f643e8577f980795dc56eae5
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 19:24:14 2017 -0700
+
+    finish main funcionality and linking and move on to final styling
+
+commit bb15c2c7608777ca1e345a181caba1e0020eb955
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 15:01:28 2017 -0700
+
+    add script file
+
+commit 44c3079339e9d926ef88a1c0c19da64360a91ff0
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 14:59:08 2017 -0700
+
+    create logout link on home page
+
+commit f4bfe23a424a362a3ae3c61325c23845d3b12f54
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 14:56:45 2017 -0700
+
+    make an page, continue fighting with styling
+
+commit b29935999930acae25fb73bcb2d1b5974f93f662
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 13:55:01 2017 -0700
+
+    create wireframe of calls for main page editing, add PageLabel property to Article
+
+commit 932af1f8fbd4bca33585b66dd95586c8c22bb095
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 13:18:44 2017 -0700
+
+    rework the home index model to take a dictionary of articles so they can be edited
+
+commit 5b228cb57e81e90439b38b6205013026ebdf8a3d
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 12:57:55 2017 -0700
+
+    create a reasonable simalcrum of the navbar
+
+commit 6428c1cdc9a04bf43ce10d9b99d2247acde24ba5
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout bb15c2c7608777ca1e345a181caba1e0020eb955
+Unlink of file 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll' failed. Should I try again? (y/n) y
+Unlink of file 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll' failed. Should I try again? (y/n) n
+error: unable to unlink old 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll': Invalid argument
+Unlink of file 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb' failed. Should I try again? (y/n) n
+error: unable to unlink old 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb': Invalid argument
+M       .vs/CodApp/v14/.suo
+M       .vs/config/applicationhost.config
+M       .vs/restore.dg
+M       src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+M       src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+Note: checking out 'bb15c2c7608777ca1e345a181caba1e0020eb955'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at bb15c2c... add script file
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git reset
+Unstaged changes after reset:
+M       .vs/CodApp/v14/.suo
+M       .vs/config/applicationhost.config
+M       .vs/restore.dg
+M       src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+M       src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout 565d4882e0e1ac4ca5bdb8669eea278770c3a5f7
+error: Your local changes to the following files would be overwritten by checkout:
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git stash
+Saved working directory and index state WIP on (no branch): bb15c2c add script file
+Unlink of file 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll' failed. Should I try again? (y/n) n
+error: unable to unlink old 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll': Invalid argument
+Unlink of file 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb' failed. Should I try again? (y/n) n
+error: unable to unlink old 'src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb': Invalid argument
+fatal: Could not reset index file to revision 'HEAD'.
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout 565d4882e0e1ac4ca5bdb8669eea278770c3a5f7
+error: Your local changes to the following files would be overwritten by checkout:
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git status
+HEAD detached at bb15c2c
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   bin/Debug/netcoreapp1.0/CodApp.dll
+        modified:   bin/Debug/netcoreapp1.0/CodApp.pdb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout .
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout master
+Previous HEAD position was bb15c2c... add script file
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git log
+commit 565d4882e0e1ac4ca5bdb8669eea278770c3a5f7
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 21:01:52 2017 -0700
+
+    add styling to other pages and remove extraeneous elements
+
+commit 200950decfe8a809f643e8577f980795dc56eae5
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 19:24:14 2017 -0700
+
+    finish main funcionality and linking and move on to final styling
+
+commit bb15c2c7608777ca1e345a181caba1e0020eb955
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 15:01:28 2017 -0700
+
+    add script file
+
+commit 44c3079339e9d926ef88a1c0c19da64360a91ff0
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 14:59:08 2017 -0700
+
+    create logout link on home page
+
+commit f4bfe23a424a362a3ae3c61325c23845d3b12f54
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 14:56:45 2017 -0700
+
+    make an page, continue fighting with styling
+
+commit b29935999930acae25fb73bcb2d1b5974f93f662
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 13:55:01 2017 -0700
+
+    create wireframe of calls for main page editing, add PageLabel property to Article
+
+commit 932af1f8fbd4bca33585b66dd95586c8c22bb095
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 13:18:44 2017 -0700
+
+    rework the home index model to take a dictionary of articles so they can be edited
+
+commit 5b228cb57e81e90439b38b6205013026ebdf8a3d
+Author: Sam Kirsch <samdkirsch@gmail.com>
+Date:   Fri Apr 28 12:57:55 2017 -0700
+
+    create a reasonable simalcrum of the navbar
+
+commit 6428c1cdc9a04bf43ce10d9b99d2247acde24ba5
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git branch save
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git checkout 5b228cb57e81e90439b38b6205013026ebdf8a3d
+error: Your local changes to the following files would be overwritten by checkout:
+        .vs/CodApp/v14/.suo
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.dll
+        src/CodApp/bin/Debug/netcoreapp1.0/CodApp.pdb
+Please commit your changes or stash them before you switch branches.
+Aborting
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git push sk save
+fatal: 'sk' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> git push origin save
+Username for 'https://github.com': denalisk
+Password for 'https://denalisk@github.com':
+Counting objects: 45, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (38/38), done.
+Writing objects: 100% (45/45), 31.12 KiB | 0 bytes/s, done.
+Total 45 (delta 23), reused 0 (delta 0)
+remote: Resolving deltas: 100% (23/23), completed with 18 local objects.
+To https://github.com/denalisk/CodApp
+ * [new branch]      save -> save
+PS C:\Users\epicodus\desktop\codapp\src\CodApp> dotnet restore
+log  : Restoring packages for C:\Users\epicodus\desktop\codapp\src\CodApp\project.json...
+log  : Restoring packages for tool 'Microsoft.AspNetCore.Server.IISIntegration.Tools' in C:\Users\epicodus\desktop\codap
+p\src\CodApp\project.json...
+log  : Restoring packages for tool 'Microsoft.EntityFrameworkCore.Tools' in C:\Users\epicodus\desktop\codapp\src\CodApp\
+project.json...
+log  : Lock file has not changed. Skipping lock file write. Path: C:\Users\epicodus\desktop\codapp\src\CodApp\project.lo
+ck.json
+log  : C:\Users\epicodus\desktop\codapp\src\CodApp\project.json
+log  : Restore completed in 6037ms.
+PS C:\Users\epicodus\desktop\codapp\src\CodApp>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

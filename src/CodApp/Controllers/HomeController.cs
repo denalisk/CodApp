@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using CodApp.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
+
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CodApp.Controllers
