@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CodApp.Models.Newsletter>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="well">
+        <form id="search-form">
+            <input oninput="dropPopulate()" type="text" id="SearchBox" placeholder="search..." />
+        </form>
+    </div>
+</div>

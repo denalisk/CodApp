@@ -18,12 +18,14 @@
 
 
 
-<!-- @foreach (var newsletter in Model)
+@foreach (var newsletter in Model)
 {
+    <hr />
     @Html.ActionLink(newsletter.Title, "Detail", new { id = newsletter.Id })
 }
 
 @if (User.Identity.IsAuthenticated)
 {
+    <hr />
     @Html.ActionLink("Create a new Newsletter", "Create")
-} -->
+}

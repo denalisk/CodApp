@@ -2,6 +2,18 @@
 
 <h3>Edit this article:</h3>
 
+<form id="new-edit"data-url-action="@Url.Action("AjaxEdit", "Newsletter")">
+    <input type="hidden" value="@ViewBag.NewsletterId" name="NewsletterId" />
+    <input type="hidden" value="@Model.Id" name="Id"/>
+    <input type="hidden" value="@Model.PageLabel" name="PageLabel"/>
+    <input id="Title" type="text" name="Title" value="@Model.Title"/>
+    <input id="Content" type="text" name="Content" value="@Model.Content"/>
+    <input id="ImageSrcString" type="text" name="ImageSrcString" value="@Model.ImageSrcString"/>
+    <button type="submit" id="ajax-button">Ajax</button>
+</form>
+
+@*<div class="split">
+
 @using (Html.BeginForm("EditArticle", "Newsletter"))
 {
     @Html.Hidden("NewsletterId")
@@ -20,3 +32,4 @@
     <input type="submit" value="Save Changes" />
 
 }
+</div>*@

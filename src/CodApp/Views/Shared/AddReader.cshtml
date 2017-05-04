@@ -1,6 +1,6 @@
 ﻿@model CodApp.Models.Reader
-<div class="container">
-  @using (Html.BeginForm("AddReader", "Newsletter"))
+<div class="container bonus-form">
+  @using (Html.BeginForm("AddReader", "Newsletter", FormMethod.Post, new { @class = "reader-form" }))
   {
     <div class="panel panel-success">
       <div class="panel-heading">
@@ -10,8 +10,8 @@
       </div>
       <div class="panel-body">
         <p>
-          @Html.LabelFor(m => m.Email)
-          @Html.TextBoxFor(m => m.Email)
+          @*@Html.LabelFor(m => m.Email)
+          @Html.TextBoxFor(m => m.Email)*@
           <br>
           @Html.LabelFor(m => m.StreetAddress)
           @Html.TextBoxFor(m => m.StreetAddress)
@@ -24,6 +24,7 @@
         </p>
       </div>
     </div>
-    <input type="submit" value="Sign Up!" class="btn btn-primary" />
+    <button type="button" id="test-button">Submit this way</button>
+    <input id="add-reader" type="submit" value="Sign Up!" class="btn btn-primary" />
   }
 </div>

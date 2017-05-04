@@ -29,7 +29,7 @@ namespace CodApp.Controllers
 
         public IActionResult AddReader(Reader reader)
         {
-            var newReader = new Reader { Name = reader.Name, Email = reader.Email };
+            var newReader = new Reader { Name = reader.Name, Email = reader.Email, City = reader.City, State = reader.State };
             _db.Readers.Add(newReader);
             _db.SaveChanges();
             return RedirectToAction("Index");
@@ -88,5 +88,36 @@ namespace CodApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public Article AjaxEdit(Article article)
+        {
+            int targetNewsletterId = Int32.Parse(this.Request.Form["NewsletterId"]);
+            var currentNewsletter = _db.Newsletters.FirstOrDefault(newsletters => newsletters.Id == targetNewsletterId);
+            article.Newsletter = currentNewsletter;
+            _db.Entry(article).State = EntityState.Modified;
+            _db.SaveChanges();
+            return article;
+        }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Search(string targetTitle)
+        {
+            var newsletter = _db.Newsletters.FirstOrDefault(n => n.Title == targetTitle);
+            var currentId = newsletter.Id;
+            return RedirectToAction("Detail", "Newsletter", new { id = currentId });
+        }
+
+        [HttpPost]
+        public IEnumerable<Newsletter> Dropdown(string searchString)
+        {
+            string sqlString = "SELECT * FROM Newsletters WHERE Title LIKE '%" + searchString + "%'";
+            var returnedNewsletters = _db.Newsletters.FromSql(sqlString).ToList();
+            return returnedNewsletters;
+        }
     }
 }
