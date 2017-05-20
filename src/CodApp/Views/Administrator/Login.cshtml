@@ -21,9 +21,9 @@
       <br>
       <br>
       <input type="submit" value="Log in" class="btn btn-info"/>
-      <!-- @if (FailedAttempt === true) {
-      <h4><span class="invalid">Invalid UserName and Password Combination</span></h4>
-      } -->
+    }
+    @if (ViewBag.FreshAttempt == false) {
+      <h4><span class="invalid">Sorry, unregistered username/password combination</span></h4>
     }
   </div>
-  </div>
+</div>
