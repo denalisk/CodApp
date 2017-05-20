@@ -5,6 +5,11 @@
 span.invalid {
   color: red;
 }
+
+div.invalid {
+  display: none;
+}
+
 /*NAV BAR ==========================================================*/
 div.bottom-section {
   border-top: 1px solid gray;
@@ -158,4 +163,12 @@ div.mini-content img {
   width: 150%;
 }
 
-/*NEWSLETTER PAGE=====================================================================*/
+/*NEWSLETTER PAGES=====================================================================*/
+
+/*from the add reader partial*/
+div.success {
+  display: none;
+}
+div.already-added {
+  display: none;
+}
