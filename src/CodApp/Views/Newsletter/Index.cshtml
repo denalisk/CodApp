@@ -9,9 +9,11 @@
 
 @if (User.Identity.IsAuthenticated)
 {
+<div class="container">
   <div class="well">
     <p>@Html.ActionLink("View the current Reader List", "Readers")</p>
   </div>
+</div>
 }
 
 @Html.Partial("AddReader", new CodApp.Models.Reader())

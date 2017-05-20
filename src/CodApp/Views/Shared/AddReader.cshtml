@@ -2,28 +2,31 @@
 <div class="container">
   @using (Html.BeginForm("AddReader", "Newsletter"))
   {
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3>Sign up for a our newsletter!</h3>
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name)
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3>Sign up for a our newsletter!</h3>
+          @Html.LabelFor(m => m.Name)
+          @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="panel-body">
+          <p>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            <br>
+            @Html.LabelFor(m => m.StreetAddress)
+            @Html.TextBoxFor(m => m.StreetAddress, new { @class = "form-control" })
+            <br>
+            @Html.LabelFor(m => m.City)
+            @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+            <br>
+            @Html.LabelFor(m => m.State)
+            @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+          </p>
+        </div>
       </div>
-      <div class="panel-body">
-        <p>
-          @Html.LabelFor(m => m.Email)
-          @Html.TextBoxFor(m => m.Email)
-          <br>
-          @Html.LabelFor(m => m.StreetAddress)
-          @Html.TextBoxFor(m => m.StreetAddress)
-          <br>
-          @Html.LabelFor(m => m.City)
-          @Html.TextBoxFor(m => m.City)
-          <br>
-          @Html.LabelFor(m => m.State)
-          @Html.TextBoxFor(m => m.State)
-        </p>
-      </div>
+      <input type="submit" value="Sign Up!" class="btn btn-primary" />
     </div>
-    <input type="submit" value="Sign Up!" class="btn btn-primary" />
   }
 </div>

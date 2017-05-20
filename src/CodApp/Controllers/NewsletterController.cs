@@ -29,7 +29,7 @@ namespace CodApp.Controllers
 
         public IActionResult AddReader(Reader reader)
         {
-            var newReader = new Reader { Name = reader.Name, Email = reader.Email };
+            var newReader = new Reader { Name = reader.Name, Email = reader.Email, StreetAddress = reader.StreetAddress, City = reader.City, State = reader.State };
             _db.Readers.Add(newReader);
             _db.SaveChanges();
             return RedirectToAction("Index");

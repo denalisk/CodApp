@@ -4,19 +4,22 @@
 
 @using (Html.BeginForm("EditArticle", "Newsletter"))
 {
+  <div class="col-md-3"></div>
+  <div class="form-group">
     @Html.Hidden("NewsletterId")
     @Html.HiddenFor(m => m.Id)
     @Html.HiddenFor(m => m.PageLabel)
+    <br>
     @Html.LabelFor(m => m.Title)
-    @Html.TextBoxFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
     <br />
-    
+
     @Html.LabelFor(m => m.Content)
-    @Html.TextAreaFor(m => m.Content, new { style = "width: 50%;height:100px;" })
+    @Html.TextAreaFor(m => m.Content, new { style = "width: 100%;height:100px;", @class = "form-control" })
     <br />
     @Html.LabelFor(m => m.ImageSrcString, "Location of image, either root directory or on the web")
-    @Html.TextBoxFor(m => m.ImageSrcString)
-
-    <input type="submit" value="Save Changes" />
-
+    @Html.TextBoxFor(m => m.ImageSrcString, new { @class = "form-control" })
+    <br>
+    <input type="submit" value="Save Changes" class="btn btn-info"/>
+  </div>
 }

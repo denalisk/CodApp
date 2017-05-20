@@ -1,6 +1,10 @@
 ﻿div {
   color: #3d3e3f;
 }
+
+span.invalid {
+  color: red;
+}
 /*NAV BAR ==========================================================*/
 div.bottom-section {
   border-top: 1px solid gray;
@@ -96,12 +100,11 @@ div.content-container {
 div.detail-image {
   width: 100%;
 }
+
 div.detail-image img{
   width: 100%;
 }
 
-div.rounded {
-}
 div.rounded img {
   margin: 1% 1% 1% 1%;
   padding: 5% 1% 2% 1%;

@@ -1,0 +1,9 @@
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\bin\Debug\netcoreapp1.0\CodApp.deps.json
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\bin\Debug\netcoreapp1.0\CodApp.runtimeconfig.json
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\bin\Debug\netcoreapp1.0\CodApp.runtimeconfig.dev.json
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\bin\Debug\netcoreapp1.0\CodApp.dll
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\bin\Debug\netcoreapp1.0\CodApp.pdb
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\obj\Debug\netcoreapp1.0\CodApp.csprojResolveAssemblyReference.cache
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\obj\Debug\netcoreapp1.0\CodApp.AssemblyInfo.cs
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\obj\Debug\netcoreapp1.0\CodApp.dll
+C:\Users\Skirsch\Desktop\Epicodus\CodApp\src\CodApp\obj\Debug\netcoreapp1.0\CodApp.pdb

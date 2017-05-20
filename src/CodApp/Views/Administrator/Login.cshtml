@@ -5,21 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-  <div class="well">
+  <div class="col-md-3"></div>
+  <div class="well col-md-6 form-group offset-md-3">
     <h2>Log in with your account</h2>
     <hr />
     @using (Html.BeginForm())
     {
       @Html.LabelFor(m => m.UserName)
       <br>
-      @Html.TextBoxFor(m => m.UserName)
-      <hr>
+      @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+      <br>
       @Html.LabelFor(m => m.Password)
       <br>
-      @Html.PasswordFor(m => m.Password)
+      @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
       <br>
       <br>
       <input type="submit" value="Log in" class="btn btn-info"/>
+      <!-- @if (FailedAttempt === true) {
+      <h4><span class="invalid">Invalid UserName and Password Combination</span></h4>
+      } -->
     }
   </div>
   </div>
