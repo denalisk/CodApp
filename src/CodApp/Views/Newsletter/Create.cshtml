@@ -2,15 +2,23 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Title)
-    @Html.TextBoxFor(m => m.Title)
-
-    @Html.LabelFor(m => m.Content)
-    @Html.TextBoxFor(m => m.Content)
-
-    <input type="submit" value="Add Newsletter" />
-
-}
+<br>
+<div class="container">
+  @using (Html.BeginForm())
+  {
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2>Create a New Newsletter</h2>
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @required = "required"})
+      </div>
+      <div class="panel-body">
+        @Html.LabelFor(m => m.Content, "Newsletter Blurb Content")
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control text-block", @required = "required"})
+        <h3>You will be able to add articles to the newsletter later</h3>
+      </div>
+    </div>
+    <hr>
+    <input type="submit" value="Add Newsletter" class="btn btn-success"/>
+  }
+</div>
