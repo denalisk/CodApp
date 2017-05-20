@@ -34,4 +34,27 @@
       $(".invalid").show();
     }
   })
+
+  // Ajax call to submit article edits without having to reload the page
+  $("#new-edit").submit(function(event) {
+    event.preventDefault();
+    console.log("Inside the new-edit call");
+    var targetArticle = {};
+    var dataArray = $(this).serializeArray();
+    for (var i = 0; i < dataArray.length; i++) {
+      targetArticle[dataArray[i].name] = dataArray[i].value;
+    }
+    $.ajax({
+      url: '/Newsletter/EditArticle',
+      type: 'POST',
+      data: targetArticle,
+      success: function(result) {
+        console.log("success!");
+      },
+      error: function(result, exception) {
+        console.log("There was a problem with the request");
+        console.log(exception);
+      }
+    })
+  })
 })
