@@ -1,10 +1,8 @@
 ﻿@model CodApp.Models.Reader
-<div class="container reader-form">
+<div class="reader-form">
   @using (Html.BeginForm("AddReader", "Newsletter", FormMethod.Post, new { id = "reader-submit" }))
   {
-  <!-- <form id="reader-submit" data-url-action="@Url.Action("CheckReader", "Newsletter")"> -->
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="">
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3>Sign up for a our newsletter!</h3>
@@ -33,7 +31,6 @@
       <button type="button" id="reader-submit-button" class="btn btn-primary">Sign Up!</button>
       <!-- <input type="submit" value="Sign Up!" class="btn btn-primary" /> -->
     </div>
-  <!-- </form> -->
   }
 </div>
 <div class="container success">

@@ -10,22 +10,40 @@
 @if (User.Identity.IsAuthenticated)
 {
 <div class="container">
-  <div class="well">
-    <p>@Html.ActionLink("View the current Reader List", "Readers")</p>
+  <div class="container">
+    <div class="well">
+      <h4>Admin Action:</h4>
+      <p>@Html.ActionLink("View the current Reader List", "Readers")</p>
+    </div>
   </div>
 </div>
 }
+<div class="container">
+  <div class="col-md-6">
+    <div class="">
+      <div class="well">
+        @if (Model.Count == 0) {
+          <h2>There are currently no newsletters to display</h2>
+        }
+        else {
+          @foreach (var newsletter in Model)
+          {
+            @Html.ActionLink(newsletter.Title, "Detail", new { id = newsletter.Id })
+          }
+        }
 
-@Html.Partial("AddReader", new CodApp.Models.Reader())
+        @if (User.Identity.IsAuthenticated)
+        {
+          <br>
+          <h4>Admin Action:</h4>
+          @Html.ActionLink("Create a new Newsletter", "Create")
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    @Html.Partial("AddReader", new CodApp.Models.Reader())
+  </div>
+</div>
 
-
-
-<!-- @foreach (var newsletter in Model)
-{
-    @Html.ActionLink(newsletter.Title, "Detail", new { id = newsletter.Id })
-}
-
-@if (User.Identity.IsAuthenticated)
-{
-    @Html.ActionLink("Create a new Newsletter", "Create")
-} -->
+<br>
