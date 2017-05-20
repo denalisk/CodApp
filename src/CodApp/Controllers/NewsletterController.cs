@@ -27,9 +27,26 @@ namespace CodApp.Controllers
             return View(newsletters);
         }
 
+        public bool CheckReader(Reader reader)
+        {
+            var newReader = new Reader { Name = reader.Name, Email = reader.Email, StreetAddress = reader.StreetAddress, City = reader.City, State = reader.State };
+            var checkReader = _db.Readers.FirstOrDefault(readers => readers.Name == newReader.Name && readers.Email == newReader.Email && readers.StreetAddress == newReader.StreetAddress);
+            if (checkReader == null)
+            {
+                _db.Readers.Add(newReader);
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public IActionResult AddReader(Reader reader)
         {
             var newReader = new Reader { Name = reader.Name, Email = reader.Email, StreetAddress = reader.StreetAddress, City = reader.City, State = reader.State };
+            var checkReader = _db.Readers.FirstOrDefault(readers => readers.Name == newReader.Name && readers.Email == newReader.Email && readers.StreetAddress == newReader.StreetAddress);
             _db.Readers.Add(newReader);
             _db.SaveChanges();
             return RedirectToAction("Index");

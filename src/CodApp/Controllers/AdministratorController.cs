@@ -69,8 +69,14 @@ namespace CodApp.Controllers
             }
         }
 
-        public IActionResult Login()
+        public IActionResult Test()
         {
+            return View();
+        }
+
+        public IActionResult Login(bool freshAttempt = true)
+        {
+            ViewBag.FreshAttempt = freshAttempt;
             return View();
         }
 
@@ -84,6 +90,7 @@ namespace CodApp.Controllers
             }
             else
             {
+                ViewBag.FreshAttempt = false;
                 return View();
             }
         }
