@@ -3,19 +3,45 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br>
+<div class="container">
+<div class="well">
 
 <h1>@Html.DisplayFor(m => m.Title)</h1>
+</div>
 <h3>@Html.DisplayFor(m => m.Content)</h3>
 <hr />
 
 @foreach(var article in @Model.Articles)
 {
-    <h2>@Html.DisplayFor(m => article.Title)</h2>
-    <p>@Html.DisplayFor(m => article.Content)</p>
-    <img src="@article.ImageSrcString" alt="An image relating to fish"/>
-    <hr />
-    @Html.Partial("EditArticle", article, new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(), new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()) { { "NewsletterId", Model.Id } })
+  <div class="col-md-6">
+    <div class="panel panel-default" id="display-article-@article.Id">
+      <div class="panel-heading">
+        <h2>@Html.DisplayFor(m => article.Title)</h2>
+      </div>
+      <div class="panel-body">
+        <p>@Html.DisplayFor(m => article.Content)</p>
+      <div class="detail-image">
+        <img src="@article.ImageSrcString" alt="An image relating to fish"/>
+      </div>
+      @if (User.Identity.IsAuthenticated)
+      {
+          <button class="edit-article-button btn btn-warning" type="button" name="button" value="@article.Id">Edit Article</button>
+      }
+    </div>
+    </div>
+    <div class="article-edit-partial" id="edit-article-@article.Id" class="col-md-6">
+      @Html.Partial("EditArticle", article, new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(), new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()) { { "NewsletterId", Model.Id } })
+      @using (Html.BeginForm("DeleteArticle", "Newsletter")) {
+        @Html.HiddenFor(article => article.Id)
+        <input type="submit" class="btn btn-danger" value="Delete Article" action="DeleteArticle"/>
+      }
+    </div>
+  </div>
+  <hr />
 
 }
 
 @Html.Partial("AddArticle", new CodApp.Models.Article(), new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(), new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()) { { "NewsletterId", Model.Id } })
+
+</div>

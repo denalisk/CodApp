@@ -105,5 +105,14 @@ namespace CodApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult DeleteArticle(Article article)
+        {
+            var newArticle = article;
+            _db.Articles.Remove(article);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -20,6 +20,6 @@
     @Html.LabelFor(m => m.ImageSrcString, "Location of image, either root directory or on the web")
     @Html.TextBoxFor(m => m.ImageSrcString, new { @class = "form-control" })
     <br>
-    <input type="submit" value="Save Changes" class="btn btn-info"/>
+    <button type="submit" class="btn btn-info save-article-button" name="button" value="@Model.Id">Save Changes</button>
   </div>
 }
